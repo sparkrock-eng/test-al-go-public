@@ -1,0 +1,8 @@
+{
+  "appSourceCopMandatoryAffixes": [
+    "SRP"
+  ],
+  "appFolders": ["app"],
+  "testFolders": ["test"],
+  "bcptTestFolders": []
+}

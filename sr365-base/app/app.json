@@ -1,0 +1,51 @@
+{
+    "id": "a2ef5ad8-a810-48d8-8485-ecb32d733f0c",
+    "name": "Base",
+    "publisher": "My Company Inc.",
+    "applicationInsightsConnectionString": "InstrumentationKey=7cd67cb1-ac4c-4ec9-92b8-e3aad2d6130e;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
+    "version": "25.0.99000.0",
+    "platform": "25.0.0.0",
+    "application": "25.0.0.0",
+    "runtime": "14.0",
+    "brief": "A collection of apps showcasing features, enhancements, and best practices for development on Microsoft Dynamics 365 Business Central.",
+    "description": "A collection of apps showcasing features, enhancements, and best practices for development on Microsoft Dynamics 365 Business Central.",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "https://help.mysite.com",
+    "url": "https://www.mysite.com",
+    "logo": "ExtensionLogo.png",
+    "screenshots": [],
+    "idRanges": [
+        {
+            "from": 23022000,
+            "to": 23022299
+        },
+        {
+            "from": 23057435,
+            "to": 23057499
+        },
+        {
+            "from": 23020100,
+            "to": 23020699
+        }
+    ],
+    "features": [
+        "TranslationFile",
+        "NoImplicitWith"
+    ],
+    "contextSensitiveHelpUrl": "https://help.mysite.com/{0}/files/business-central/",
+    "helpBaseUrl": "https://help.mysite.com/{0}/files/business-central/",
+    "supportedLocales": [
+        "en-US",
+        "en-CA",
+        "fr-CA"
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": false,
+        "includeSourceInSymbolFile": true
+    },
+    "suppressWarnings": [
+        "AS0081"
+    ]
+}

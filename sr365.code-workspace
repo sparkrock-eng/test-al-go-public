@@ -1,0 +1,27 @@
+{
+    "folders":  [
+					{
+						"path": "sr365-base"
+					},
+					{
+						"path": "sr365-mid"
+					},
+					{
+						"path": "sr365-top"
+					},
+					{
+						"path": ".github"
+					}
+                ],
+    "settings":  {
+		"al.codeAnalyzers": [
+			"${CodeCop}",
+			"${AppSourceCop}",
+			"${UICop}"
+		],
+		"al.enableCodeAnalysis": true,
+		"al.backgroundCodeAnalysis": true,
+		"al.ruleSetPath": "sr365.ruleset.json",
+		"al.enableCodeActions": true
+	}
+}

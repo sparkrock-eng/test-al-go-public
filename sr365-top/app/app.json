@@ -1,0 +1,66 @@
+{
+    "id": "8f6dfb53-e6bb-4ee4-843d-7610d230880d",
+    "name": "Top",
+    "publisher": "My Company Inc.",
+    "applicationInsightsConnectionString": "InstrumentationKey=ccd8dff5-047c-4b97-9e0f-0e2b8a9e6596;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
+    "version": "25.0.99000.0",
+    "platform": "25.0.0.0",
+    "application": "25.0.0.0",
+    "runtime": "14.0",
+    "brief": "A collection of apps showcasing features, enhancements, and best practices for development on Microsoft Dynamics 365 Business Central.",
+    "description": "A collection of apps showcasing features, enhancements, and best practices for development on Microsoft Dynamics 365 Business Central.",
+    "privacyStatement": "",
+    "EULA": "",
+    "help": "https://help.mysite.com",
+    "url": "https://www.mysite.com",
+    "logo": "ExtensionLogo.png",
+    "dependencies": [
+        {
+            "id": "2eba26e5-0cca-4429-a02a-2ca588bc8107",
+            "name": "Mid",
+            "publisher": "My Company Inc.",
+            "version": "25.0.0.0"
+        },
+        {
+            "id": "a2ef5ad8-a810-48d8-8485-ecb32d733f0c",
+            "name": "Base",
+            "publisher": "My Company Inc.",
+            "version": "25.0.0.0"
+        }
+    ],
+    "screenshots": [],
+    "idRanges": [
+        {
+            "from": 23032400,
+            "to": 23032479
+        },
+        {
+            "from": 23020950,
+            "to": 23020979
+        },
+        {
+            "from": 23032480,
+            "to": 23032499
+        },
+        {
+            "from": 23030950,
+            "to": 23030953
+        }
+    ],
+    "contextSensitiveHelpUrl": "https://help.mysite.com/{0}/files/business-central/",
+    "helpBaseUrl": "https://help.mysite.com/{0}/files/business-central/",
+    "supportedLocales": [
+        "en-US",
+        "en-CA",
+        "fr-CA"
+    ],
+    "resourceExposurePolicy": {
+        "allowDebugging": true,
+        "allowDownloadingSource": false,
+        "includeSourceInSymbolFile": true
+    },
+    "features": [
+        "TranslationFile",
+        "NoImplicitWith"
+    ]
+}

@@ -1,0 +1,100 @@
+{
+    "name": "Sparkrock App Rule Set",
+    "rules": [
+        {
+            "id": "AS0051",
+            "action": "None",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AS0052",
+            "action": "None",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AA0072",
+            "action": "None",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AA0189",
+            "action": "None",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AS0103",
+            "action": "Error",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AA0470",
+            "action": "Error",
+            "justification": "Temorarily disabled."
+        },
+        {
+            "id": "AA0218",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0021",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0137",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0205",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0008",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0206",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0074",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0228",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0215",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0225",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0226",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AL0667",
+            "action": "Error",
+            "justification": "REQUIRED"
+        },
+        {
+            "id": "AA0462",
+            "action": "Error",
+            "justification": "REQUIRED"
+        }
+    ]
+}

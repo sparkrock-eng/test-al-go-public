@@ -1,0 +1,8 @@
+*.app
+*.g.xlf
+rad.json
+*/.vscode/*
+*/.alpackages/*
+*/.snapshots/*
+!*/.vscode/settings.json
+!*/.vscode/*.ruleset.json
