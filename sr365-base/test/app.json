@@ -3,7 +3,7 @@
     "name": "Base Tests",
     "publisher": "My Company Inc.",
     "brief": "",
-    "description": "Platform test app",
+    "description": "Base test app",
     "version": "25.0.99000.0",
     "application": "25.0.0.0",
     "platform": "25.0.0.0",

@@ -2,7 +2,7 @@
     "id": "8f6dfb53-e6bb-4ee4-843d-7610d230880d",
     "name": "Top",
     "publisher": "My Company Inc.",
-    "applicationInsightsConnectionString": "InstrumentationKey=ccd8dff5-047c-4b97-9e0f-0e2b8a9e6596;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
+    "applicationInsightsConnectionString": "InstrumentationKey=ccd8dff5-xxxx-yyyy-9e0f-0e2b8a9e6596;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
     "version": "25.0.99000.0",
     "platform": "25.0.0.0",
     "application": "25.0.0.0",

@@ -2,7 +2,7 @@
     "id": "2eba26e5-0cca-4429-a02a-2ca588bc8107",
     "name": "Mid",
     "publisher": "My Company Inc.",
-    "applicationInsightsConnectionString": "InstrumentationKey=8b0afffa-dc0d-48e9-b268-625eb787685c;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
+    "applicationInsightsConnectionString": "InstrumentationKey=8b0afffa-xxxx-yyyy-b268-625eb787685c;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
     "version": "25.0.99000.0",
     "platform": "25.0.0.0",
     "application": "25.0.0.0",
