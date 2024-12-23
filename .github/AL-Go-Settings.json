@@ -12,7 +12,7 @@
   "cacheKeepDays": 10,
   "doNotBuildTests": false,
   "doNotSignApps": false,
-  "BcContainerHelperVersion": "latest",
+  "BcContainerHelperVersion": "preview",
   "CICDPushBranches": [
     "main",
     "release/*",
