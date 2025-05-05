@@ -3,7 +3,7 @@
   "templateUrl": "https://github.com/microsoft/AL-Go-AppSource@main",
   "templateSha": "8d285b61b93664773272a886ffd0ba0e6da28846",
   "rulesetFile": "../sr365.ruleset.json",
-  "useProjectDependencies": true,
+  "useProjectDependencies": false,
   "alwaysBuildAllProjects": false,
   "enableCodeCop": true,
   "enableUICop": true,
@@ -11,6 +11,7 @@
   "failOn": "error",
   "cacheKeepDays": 10,
   "doNotBuildTests": false,
+  "doNotRunTests": false,
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
   "CICDPushBranches": [
@@ -28,7 +29,17 @@
         "feature/*"
       ],
       "settings": {
-      "doNotSignApps": true
+      "doNotSignApps": true,
+      "doNotRunTests": true
+      }
+    },
+    {
+      "workflows": [
+        "CICD"
+      ],
+      "settings": {
+        "doNotRunTests": true,
+        "alwaysBuildAllProjects": true
       }
     }
   ]
