@@ -20,7 +20,8 @@
     "feature/*"
   ],
   "buildModes": [
-    "nextmajor"
+    "Default",
+    "NextMajor"
   ],
   "CICDPullRequestBranches": [
     "main"
@@ -47,8 +48,7 @@
     },
     {
       "buildModes": [
-        "default",
-        "nextmajor"
+        "NextMajor"
       ],
       "settings": {
         "artifact": "//26/us/latest",
