@@ -3,7 +3,7 @@
   "templateUrl": "https://github.com/microsoft/AL-Go-AppSource@main",
   "templateSha": "10e466217258cbc3aedec799c01793295c8d5ecb",
   "rulesetFile": "../sr365.ruleset.json",
-  "useProjectDependencies": false,
+  "useProjectDependencies": true,
   "alwaysBuildAllProjects": false,
   "enableCodeCop": true,
   "enableUICop": true,
