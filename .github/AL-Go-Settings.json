@@ -47,6 +47,7 @@
     },
     { 
       "buildModes": [
+        "default",
         "nextmajor"
       ],
       "settings": {
