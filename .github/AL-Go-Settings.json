@@ -45,7 +45,7 @@
         "alwaysBuildAllProjects": true
       }
     },
-    { 
+    {
       "buildModes": [
         "default",
         "nextmajor"
@@ -56,7 +56,10 @@
         "skipUpgrade": true,
         "repoVersion": "26.1",
         "doNotSignApps": false,
-        "preprocessorSymbols": ["NEXTMINOR", "NEXTMAJOR"]
+        "preprocessorSymbols": [
+          "NEXTMINOR",
+          "NEXTMAJOR"
+        ]
       }
     }
   ]
