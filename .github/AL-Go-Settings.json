@@ -19,10 +19,6 @@
     "release/*",
     "feature/*"
   ],
-  "buildModes": [
-    "Default",
-    "NextMajor"
-  ],
   "CICDPullRequestBranches": [
     "main"
   ],
@@ -43,7 +39,11 @@
       ],
       "settings": {
         "doNotRunTests": true,
-        "alwaysBuildAllProjects": true
+        "alwaysBuildAllProjects": true,
+        "buildModes": [
+          "Default",
+          "NextMajor"
+        ]
       }
     },
     {
@@ -51,10 +51,10 @@
         "NextMajor"
       ],
       "settings": {
-        "artifact": "//26/us/latest",
+        "artifact": "////nextmajor",
         "versioningStrategy": 16,
         "skipUpgrade": true,
-        "repoVersion": "26.1",
+        "repoVersion": "27.1",
         "doNotSignApps": false,
         "preprocessorSymbols": [
           "NEXTMINOR",
