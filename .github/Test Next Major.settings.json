@@ -2,5 +2,8 @@
   "artifact": "////nextmajor",
   "cacheImageName": "",
   "versioningStrategy": 16,
-  "repoVersion": "26.1"
+  "repoVersion": "26.1",
+  "buildModes": [
+    "Default"
+  ]
 }
