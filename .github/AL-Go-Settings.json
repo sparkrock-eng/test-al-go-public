@@ -56,6 +56,7 @@
         "skipUpgrade": true,
         "repoVersion": "27.1",
         "doNotSignApps": false,
+        "UpdateDependencies": true,
         "preprocessorSymbols": [
           "NEXTMINOR",
           "NEXTMAJOR"
