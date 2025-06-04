@@ -51,10 +51,10 @@
         "NextMajor"
       ],
       "settings": {
-        "artifact": "////nextmajor",
+        "artifact": "//26.1/us/first",
         "versioningStrategy": 16,
         "skipUpgrade": true,
-        "repoVersion": "27.1",
+        "repoVersion": "26.1",
         "doNotSignApps": false,
         "UpdateDependencies": true,
         "preprocessorSymbols": [
