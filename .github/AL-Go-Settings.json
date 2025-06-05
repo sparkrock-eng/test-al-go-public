@@ -51,7 +51,7 @@
         "NextMajor"
       ],
       "settings": {
-        "artifact": "//26.1/us/first",
+        "artifact": "onprem//26.1/us/first",
         "versioningStrategy": 16,
         "skipUpgrade": true,
         "repoVersion": "26.1",
