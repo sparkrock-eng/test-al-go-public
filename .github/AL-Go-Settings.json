@@ -14,7 +14,7 @@
   "doNotRunTests": false,
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
-  "githubRunner": "SR365",
+  "githubRunner": "SR365-Build",
   "CICDPushBranches": [
     "main",
     "release/*",
