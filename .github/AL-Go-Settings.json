@@ -1,7 +1,7 @@
 {
   "type": "AppSource App",
   "templateUrl": "https://github.com/microsoft/AL-Go-AppSource@main",
-  "templateSha": "10e466217258cbc3aedec799c01793295c8d5ecb",
+  "templateSha": "b3a3eaef3f757c1dff5521fe21a618681ab53023",
   "rulesetFile": "../sr365.ruleset.json",
   "useProjectDependencies": true,
   "alwaysBuildAllProjects": false,
