@@ -23,13 +23,15 @@ jobs:
             const pr = payload.pull_request || {};
             const body = pr.body || '';
 
+            // canonical repo/PR identifiers
+            const { owner, repo } = context.repo;
+            const issue_number = context.issue.number;
+
             // 1) Extract manual rate
             const match = body.match(/Manual Engineering rate:\s*(\d{1,3})%/i);
             if (!match) {
-              await github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
                 body: '⚠️ **Error:** Cannot find `Manual Engineering rate: x%`. Please include a line like `Manual Engineering rate: 30%` in your description.'
               });
               core.setFailed('Manual Engineering rate not found.');
@@ -38,10 +40,8 @@ jobs:
 
             const manual = parseInt(match[1], 10);
             if (manual < 0 || manual > 100) {
-              await github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
                 body: `⚠️ **Error:** Manual Engineering rate \`${manual}%\` is out of range. Must be between 0 and 100.`
               });
               core.setFailed('Manual Engineering rate out of range.');
@@ -58,10 +58,8 @@ jobs:
             // 3) Remove any old AI-Assisted:*% labels
             for (const lbl of pr.labels.map(l => l.name)) {
               if (/^AI-Assisted:\s*\d+%$/.test(lbl) && lbl !== newLabel) {
-                await github.issues.removeLabel({
-                  owner: context.repo.owner,
-                  repo: context.repo.repo,
-                  issue_number: context.issue.number,
+                await github.rest.issues.removeLabel({
+                  owner, repo, issue_number,
                   name: lbl
                 });
               }
@@ -69,16 +67,13 @@ jobs:
 
             // 4) Verify label exists (error if missing)
             try {
-              await github.issues.getLabel({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
+              await github.rest.issues.getLabel({
+                owner, repo,
                 name: newLabel
               });
             } catch {
-              await github.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
+              await github.rest.issues.createComment({
+                owner, repo, issue_number,
                 body: `⚠️ **Error:** Required label \`${newLabel}\` does not exist. Please create it first.`
               });
               core.setFailed(`Label ${newLabel} not found.`);
@@ -86,9 +81,7 @@ jobs:
             }
 
             // 5) Apply the correct label
-            await github.issues.addLabels({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
+            await github.rest.issues.addLabels({
+              owner, repo, issue_number,
               labels: [newLabel]
             });
