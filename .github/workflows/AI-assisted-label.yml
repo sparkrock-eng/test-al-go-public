@@ -1,28 +1,28 @@
 # Workflow: Label AI-Assisted Percentage
-# Required labels in repository:
-#   - AI-Assisted: 0%   (Hex: 000000) - No AI contribution
-#   - AI-Assisted: 10%  (Hex: FF0000) - Very low AI contribution
-#   - AI-Assisted: 20%  (Hex: FF3300) - Low AI contribution
-#   - AI-Assisted: 30%  (Hex: FF6600) - Moderate-low AI contribution
-#   - AI-Assisted: 40%  (Hex: FF9900) - Moderate AI contribution
-#   - AI-Assisted: 50%  (Hex: FFCC00) - Mid-point AI contribution
-#   - AI-Assisted: 60%  (Hex: CCFF00) - Moderate-high AI contribution
-#   - AI-Assisted: 70%  (Hex: 99FF00) - High AI contribution
-#   - AI-Assisted: 80%  (Hex: 66FF00) - Very high AI contribution
-#   - AI-Assisted: 90%  (Hex: 33FF00) - Near-max AI contribution
-#   - AI-Assisted: 100% (Hex: 00FF00) - Fully AI-generated
+# Prerequisites:
+#   • Repository must have these AI-Assisted labels:
+#     - AI-Assisted: 0%   (Hex: 000000) - No AI contribution
+#     - AI-Assisted: 10%  (Hex: FF0000) - Very low AI contribution
+#     - AI-Assisted: 20%  (Hex: FF3300) - Low AI contribution
+#     - AI-Assisted: 30%  (Hex: FF6600) - Moderate-low AI contribution
+#     - AI-Assisted: 40%  (Hex: FF9900) - Moderate AI contribution
+#     - AI-Assisted: 50%  (Hex: FFCC00) - Mid-point AI contribution
+#     - AI-Assisted: 60%  (Hex: CCFF00) - Moderate-high AI contribution
+#     - AI-Assisted: 70%  (Hex: 99FF00) - High AI contribution
+#     - AI-Assisted: 80%  (Hex: 66FF00) - Very high AI contribution
+#     - AI-Assisted: 90%  (Hex: 33FF00) - Near-max AI contribution
+#     - AI-Assisted: 100% (Hex: 00FF00) - Fully AI-generated
+#   • Pull request description must include a line:
+#       Manual Engineering rate: x%
 # Summary:
-#   Parses the “Manual Engineering rate: x%” from a pull request description
-#   Calculates the corresponding AI rate rounded to the nearest 10% bucket (0%–100%)
-#   Verifies that the matching AI-Assisted label exists
-#   Removes any previous AI-Assisted labels
-#   Applies the correct one, failing the check if parsing fails or labels are missing
+#   Parses the “Manual Engineering rate: x%” value from the PR and calculates the AI rate rounded to the nearest 10% bucket (0%–100%) and then applies the correct AI label
+#   Fails the build if parsing or labels are missing.
 
 name: Label AI-Assisted Percentage
 
 permissions:
-  issues: write
-  pull-requests: write
+  issues: write            # for getLabel/removeLabel/addLabels
+  pull-requests: write     # to block merge on failure
 
 on:
   pull_request:
