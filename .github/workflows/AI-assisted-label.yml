@@ -1,15 +1,15 @@
 # Workflow: Label AI-Assisted Percentage
 # Required labels in repository:
-#   - AI-Assisted: 10%
-#   - AI-Assisted: 20%
-#   - AI-Assisted: 30%
-#   - AI-Assisted: 40%
-#   - AI-Assisted: 50%
-#   - AI-Assisted: 60%
-#   - AI-Assisted: 70%
-#   - AI-Assisted: 80%
-#   - AI-Assisted: 90%
-#   - AI-Assisted: 100%
+#   - AI-Assisted: 10%  (Hex: FF0000) - Very low AI contribution
+#   - AI-Assisted: 20%  (Hex: FF3300) - Low AI contribution
+#   - AI-Assisted: 30%  (Hex: FF6600) - Moderate-low AI contribution
+#   - AI-Assisted: 40%  (Hex: FF9900) - Moderate AI contribution
+#   - AI-Assisted: 50%  (Hex: FFCC00) - Mid-point AI contribution
+#   - AI-Assisted: 60%  (Hex: CCFF00) - Moderate-high AI contribution
+#   - AI-Assisted: 70%  (Hex: 99FF00) - High AI contribution
+#   - AI-Assisted: 80%  (Hex: 66FF00) - Very high AI contribution
+#   - AI-Assisted: 90%  (Hex: 33FF00) - Near-max AI contribution
+#   - AI-Assisted: 100% (Hex: 00FF00) - Fully AI-generated
 # Summary:
 #   Parses the “Manual Engineering rate: x%” from a pull request description
 #   Calculates the corresponding AI rate rounded to the nearest 10% bucket (10%–100%)
