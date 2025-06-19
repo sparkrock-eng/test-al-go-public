@@ -1,5 +1,6 @@
 # Workflow: Label AI-Assisted Percentage
 # Required labels in repository:
+#   - AI-Assisted: 0%   (Hex: 000000) - No AI contribution
 #   - AI-Assisted: 10%  (Hex: FF0000) - Very low AI contribution
 #   - AI-Assisted: 20%  (Hex: FF3300) - Low AI contribution
 #   - AI-Assisted: 30%  (Hex: FF6600) - Moderate-low AI contribution
@@ -12,7 +13,7 @@
 #   - AI-Assisted: 100% (Hex: 00FF00) - Fully AI-generated
 # Summary:
 #   Parses the “Manual Engineering rate: x%” from a pull request description
-#   Calculates the corresponding AI rate rounded to the nearest 10% bucket (10%–100%)
+#   Calculates the corresponding AI rate rounded to the nearest 10% bucket (0%–100%)
 #   Verifies that the matching AI-Assisted label exists
 #   Removes any previous AI-Assisted labels
 #   Applies the correct one, failing the check if parsing fails or labels are missing
@@ -37,54 +38,47 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            // core, github & context are already available
             const { payload } = context;
             const pr = payload.pull_request || {};
             const body = pr.body || '';
-
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
 
             // 1) Extract manual rate
-            const match = body.match(/Manual Engineering rate:\s*(\d{1,3})%/i);
-            if (!match) {
+            const m = body.match(/Manual Engineering rate:\s*(\d{1,3})%/i);
+            if (!m) {
               core.setFailed('❌ Parsing error: no `Manual Engineering rate: x%` found in PR description.');
               return;
             }
 
             // 2) Validate range
-            const manual = parseInt(match[1], 10);
+            const manual = parseInt(m[1], 10);
             if (manual < 0 || manual > 100 || isNaN(manual)) {
               core.setFailed(`❌ Invalid Manual Engineering rate: \`${manual}%\` (must be between 0 and 100).`);
               return;
             }
 
-            // 3) Compute AI rate and snap to 10% buckets
+            // 3) Compute AI rate → nearest 10%, include 0% bucket
             const rawAi = 100 - manual;
-            let aiBucket = Math.round(rawAi / 10) * 10;
-            if (aiBucket < 10) aiBucket = 10;
-            if (aiBucket > 100) aiBucket = 100;
-            const newLabel = `AI-Assisted: ${aiBucket}%`;
+            let ai = Math.round(rawAi / 10) * 10;
+            if (ai < 0) ai = 0;
+            if (ai > 100) ai = 100;
+            const target = `AI-Assisted: ${ai}%`;
 
-            // 4) Remove any old AI-Assisted:*% labels
+            // 4) Remove old AI-Assisted labels
             for (const lbl of pr.labels.map(l => l.name)) {
-              if (/^AI-Assisted:\s*\d+%$/.test(lbl) && lbl !== newLabel) {
+              if (/^AI-Assisted:\s*\d+%$/.test(lbl) && lbl !== target) {
                 await github.rest.issues.removeLabel({ owner, repo, issue_number, name: lbl });
               }
             }
 
-            // 5) Verify that the target label already exists
+            // 5) Verify that the target label exists
             try {
-              await github.rest.issues.getLabel({ owner, repo, name: newLabel });
+              await github.rest.issues.getLabel({ owner, repo, name: target });
             } catch {
-              core.setFailed(`❌ Missing label: \`${newLabel}\` does not exist in this repository.`);
+              core.setFailed(`❌ Missing label: \`${target}\` does not exist in this repository.`);
               return;
             }
 
             // 6) Apply the correct label
-            await github.rest.issues.addLabels({
-              owner,
-              repo,
-              issue_number,
-              labels: [newLabel]
-            });
+            await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [target] });
