@@ -1,6 +1,5 @@
 name: Label AI-Assisted Percentage
 
-# Grant the workflow permission to read/write PRs & labels
 permissions:
   issues: write
   pull-requests: write
@@ -31,7 +30,7 @@ jobs:
                 owner: repo.owner,
                 repo: repo.repo,
                 issue_number: issue.number,
-                body: '⚠️ **Error:** Could not find `Manual Engineering rate: x%` in the PR description. Please add a line like `Manual Engineering rate: 30%`.'
+                body: '⚠️ **Error:** Cannot find `Manual Engineering rate: x%`. Please include a line like `Manual Engineering rate: 30%` in your description.'
               });
               core.setFailed('Manual Engineering rate not found.');
               return;
@@ -43,19 +42,22 @@ jobs:
                 owner: repo.owner,
                 repo: repo.repo,
                 issue_number: issue.number,
-                body: `⚠️ **Error:** Manual Engineering rate \`${manual}%\` is out of range (must be 0–100).`
+                body: `⚠️ **Error:** Manual Engineering rate \`${manual}%\` is out of range. Must be between 0 and 100.`
               });
               core.setFailed('Manual Engineering rate out of range.');
               return;
             }
 
-            // 2) Compute AI rate & label name
-            const ai = 100 - manual;
-            const newLabel = `AI-Assisted: ${ai}%`;
+            // 2) Compute AI rate and round to nearest 10%
+            const rawAi = 100 - manual;
+            let aiBucket = Math.round(rawAi / 10) * 10;
+            if (aiBucket < 10) aiBucket = 10;
+            if (aiBucket > 100) aiBucket = 100;
+            const newLabel = `AI-Assisted: ${aiBucket}%`;
 
-            // 3) Remove old AI-Assisted labels
-            const existingLabels = pr.labels.map(l => l.name);
-            for (const lbl of existingLabels) {
+            // 3) Remove any old AI-Assisted:*% labels
+            const existing = pr.labels.map(l => l.name);
+            for (const lbl of existing) {
               if (/^AI-Assisted:\s*\d+%$/.test(lbl) && lbl !== newLabel) {
                 await github.issues.removeLabel({
                   owner: repo.owner,
@@ -66,7 +68,7 @@ jobs:
               }
             }
 
-            // 4) Ensure the new label exists in repo (create if missing)
+            // 4) Verify label exists (error if missing)
             try {
               await github.issues.getLabel({
                 owner: repo.owner,
@@ -74,16 +76,17 @@ jobs:
                 name: newLabel
               });
             } catch {
-              await github.issues.createLabel({
+              await github.issues.createComment({
                 owner: repo.owner,
                 repo: repo.repo,
-                name: newLabel,
-                color: '0366d6',
-                description: 'Percentage of code AI-generated'
+                issue_number: issue.number,
+                body: `⚠️ **Error:** Required label \`${newLabel}\` does not exist in this repository. Please create it before using this workflow.`
               });
+              core.setFailed(`Label ${newLabel} not found.`);
+              return;
             }
 
-            // 5) Apply it
+            // 5) Apply the correct label
             await github.issues.addLabels({
               owner: repo.owner,
               repo: repo.repo,
