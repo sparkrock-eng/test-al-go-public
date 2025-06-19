@@ -44,16 +44,22 @@ jobs:
             const { owner, repo } = context.repo;
             const issue_number = context.issue.number;
 
+            console.log(`[AI-Assisted Label] Starting label assignment for PR #${issue_number}`);
+
             // 1) Extract manual rate
+            console.log('[AI-Assisted Label] Parsing manual engineering rate...');
             const m = body.match(/Manual Engineering rate:\s*(\d{1,3})%/i);
             if (!m) {
+              console.error('[AI-Assisted Label] Error: Manual Engineering rate not found.');
               core.setFailed('❌ Parsing error: no `Manual Engineering rate: x%` found in PR description.');
               return;
             }
 
             // 2) Validate range
             const manual = parseInt(m[1], 10);
+            console.log(`[AI-Assisted Label] Parsed manual rate: ${manual}%`);
             if (manual < 0 || manual > 100 || isNaN(manual)) {
+              console.error(`[AI-Assisted Label] Error: Invalid manual rate ${manual}%`);
               core.setFailed(`❌ Invalid Manual Engineering rate: \`${manual}%\` (must be between 0 and 100).`);
               return;
             }
@@ -64,10 +70,13 @@ jobs:
             if (ai < 0) ai = 0;
             if (ai > 100) ai = 100;
             const target = `AI-Assisted: ${ai}%`;
+            console.log(`[AI-Assisted Label] Computed AI rate: ${ai}%, targeting label '${target}'`);
 
             // 4) Remove old AI-Assisted labels
+            console.log('[AI-Assisted Label] Removing any old AI-Assisted labels...');
             for (const lbl of pr.labels.map(l => l.name)) {
               if (/^AI-Assisted:\s*\d+%$/.test(lbl) && lbl !== target) {
+                console.log(`- Removing label: ${lbl}`);
                 await github.rest.issues.removeLabel({ owner, repo, issue_number, name: lbl });
               }
             }
@@ -76,9 +85,12 @@ jobs:
             try {
               await github.rest.issues.getLabel({ owner, repo, name: target });
             } catch {
+              console.error(`[AI-Assisted Label] Error: Missing required label '${target}'`);
               core.setFailed(`❌ Missing label: \`${target}\` does not exist in this repository.`);
               return;
             }
 
             // 6) Apply the correct label
+            console.log(`[AI-Assisted Label] Applying label '${target}'`);
             await github.rest.issues.addLabels({ owner, repo, issue_number, labels: [target] });
+            console.log('[AI-Assisted Label] Label applied successfully.');
