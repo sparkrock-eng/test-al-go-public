@@ -1,3 +1,22 @@
+# Workflow: Label AI-Assisted Percentage
+# Required labels in repository:
+#   - AI-Assisted: 10%
+#   - AI-Assisted: 20%
+#   - AI-Assisted: 30%
+#   - AI-Assisted: 40%
+#   - AI-Assisted: 50%
+#   - AI-Assisted: 60%
+#   - AI-Assisted: 70%
+#   - AI-Assisted: 80%
+#   - AI-Assisted: 90%
+#   - AI-Assisted: 100%
+# Summary:
+#   Parses the “Manual Engineering rate: x%” from a pull request description
+#   Calculates the corresponding AI rate rounded to the nearest 10% bucket (10%–100%)
+#   Verifies that the matching AI-Assisted label exists
+#   Removes any previous AI-Assisted labels
+#   Applies the correct one, failing the check if parsing fails or labels are missing
+
 name: Label AI-Assisted Percentage
 
 permissions:
