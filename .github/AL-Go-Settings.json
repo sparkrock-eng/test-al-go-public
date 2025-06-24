@@ -20,7 +20,8 @@
   "runs-on": "windows-latest",
   "githubRunner": "SR365-Build",
   "defaultNewContainerParameters": {
-    "isolation": "process"
+    "isolation": "process",
+    "memoryLimit": "12GB"
   },
   "CICDPushBranches": [
     "main",
