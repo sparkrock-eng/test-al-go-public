@@ -15,7 +15,6 @@
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
   "versioningStrategy": 3,
-  "githubRunner": "SR365-Build",
   "CICDPushBranches": [
     "main",
     "release/*",
