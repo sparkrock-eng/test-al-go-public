@@ -15,6 +15,7 @@
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
   "versioningStrategy": 3,
+  "repoVersion": "26.1",
   "CICDPushBranches": [
     "main",
     "release/*",
