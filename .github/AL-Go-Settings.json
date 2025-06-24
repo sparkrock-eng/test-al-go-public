@@ -16,6 +16,8 @@
   "BcContainerHelperVersion": "preview",
   "versioningStrategy": 3,
   "repoVersion": "26.1",
+  "runs-on": "windows-latest",
+  "githubRunner": "SR365-Build",
   "CICDPushBranches": [
     "main",
     "release/*",
@@ -43,8 +45,7 @@
         "doNotRunTests": true,
         "alwaysBuildAllProjects": true,
         "buildModes": [
-          "Default",
-          "NextMajor"
+          "Default"
         ]
       }
     },
