@@ -4,10 +4,10 @@
     "publisher": "My Company Inc.",
     "brief": "",
     "description": "Top test app",
-    "version": "25.0.99000.0",
-    "application": "25.0.0.0",
-    "platform": "25.0.0.0",
-    "runtime": "14.0",
+    "version": "26.1.2526.99000",
+    "application": "26.0.0.0",
+    "platform": "26.0.0.0",
+    "runtime": "15.0",
     "privacyStatement": "",
     "EULA": "",
     "help": "",
@@ -17,37 +17,37 @@
             "id": "23de40a6-dfe8-4f80-80db-d70f83ce8caf",
             "publisher": "Microsoft",
             "name": "Test Runner",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         },
         {
             "id": "a2ef5ad8-a810-48d8-8485-ecb32d733f0c",
             "name": "Base",
             "publisher": "My Company Inc.",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         },
         {
             "id": "4069edb5-69f5-4f3d-8914-cfffd51ee00b",
             "name": "Base Tests",
             "publisher": "My Company Inc.",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         },
         {
             "id": "2eba26e5-0cca-4429-a02a-2ca588bc8107",
             "name": "Mid",
             "publisher": "My Company Inc.",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         },
         {
             "id": "302e9fc2-ecdb-4195-8390-b202947157e6",
             "name": "Mid Tests",
             "publisher": "My Company Inc.",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         },
         {
             "id": "8f6dfb53-e6bb-4ee4-843d-7610d230880d",
             "name": "Top",
             "publisher": "My Company Inc.",
-            "version": "25.0.0.0"
+            "version": "26.0.0.0"
         }
     ],
     "screenshots": [],

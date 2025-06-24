@@ -14,6 +14,7 @@
   "doNotRunTests": false,
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
+  "versioningStrategy": 3,
   "githubRunner": "SR365-Build",
   "CICDPushBranches": [
     "main",
@@ -52,10 +53,10 @@
         "NextMajor"
       ],
       "settings": {
-        "artifact": "/OnPrem/26.1/us/first",
+        "artifact": "////nextmajor",
         "versioningStrategy": 16,
         "skipUpgrade": true,
-        "repoVersion": "26.1",
+        "repoVersion": "27.0",
         "doNotSignApps": false,
         "UpdateDependencies": true,
         "preprocessorSymbols": [
