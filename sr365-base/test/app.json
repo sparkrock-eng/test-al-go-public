@@ -4,7 +4,7 @@
   "publisher": "My Company Inc.",
   "brief": "",
   "description": "Base test app",
-  "version": "26.1.2527.0",
+  "version": "26.1.2528.0",
   "application": "26.0.0.0",
   "platform": "26.0.0.0",
   "runtime": "15.0",
@@ -23,7 +23,7 @@
       "id": "a2ef5ad8-a810-48d8-8485-ecb32d733f0c",
       "name": "Base",
       "publisher": "My Company Inc.",
-      "version": "26.1.2527.0"
+      "version": "26.1.2528.0"
     }
   ],
   "screenshots": [],

@@ -3,7 +3,7 @@
   "name": "Base",
   "publisher": "My Company Inc.",
   "applicationInsightsConnectionString": "InstrumentationKey=7cd67cb1-xxxx-yyyy-92b8-e3aad2d6130e;IngestionEndpoint=https://canadacentral-0.in.applicationinsights.azure.com/",
-  "version": "26.1.2527.0",
+  "version": "26.1.2528.0",
   "platform": "26.0.0.0",
   "application": "26.0.0.0",
   "runtime": "15.0",

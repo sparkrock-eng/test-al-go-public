@@ -16,7 +16,7 @@
   "doNotSignApps": false,
   "BcContainerHelperVersion": "preview",
   "versioningStrategy": 3,
-  "repoVersion": "26.1.2527",
+  "repoVersion": "26.1.2528",
   "runs-on": "windows-latest",
   "githubRunner": "SR365-Build",
   "defaultNewContainerParameters": {
