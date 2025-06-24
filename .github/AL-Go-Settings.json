@@ -19,6 +19,9 @@
   "repoVersion": "26.1.2527",
   "runs-on": "windows-latest",
   "githubRunner": "SR365-Build",
+  "defaultNewContainerParameters": {
+    "isolation": "hyperv"
+  },
   "CICDPushBranches": [
     "main",
     "release/*",
